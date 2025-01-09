@@ -187,6 +187,7 @@ ENDFORM.
 FORM zf_processamento_dados .
 
   SORT t_scarr BY carrid.
+  SORT t_spfli BY carrid connid.
 
   LOOP AT t_sflight INTO w_sflight.
 
