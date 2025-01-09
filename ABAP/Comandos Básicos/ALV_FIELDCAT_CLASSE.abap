@@ -213,9 +213,9 @@ FORM zf_processamento_dados .
 
     ENDIF.
 
-  ENDLOOP.
+    APPEND w_saida TO t_saida.
 
-  APPEND w_saida TO t_saida.
+  ENDLOOP.
 
 ENDFORM.
 
