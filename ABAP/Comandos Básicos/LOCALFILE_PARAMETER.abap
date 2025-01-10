@@ -1,6 +1,13 @@
-***************************************
-*** PARAMETROS DE SELEÇÃO DE DADOS  ***
-***************************************
+*&---------------------------------------------------------------------*
+*& Report ZR_BHS_LOCALFILE.
+*&---------------------------------------------------------------------*
+*& Template para código para selecionar local de arquivo.
+*&---------------------------------------------------------------------*
+REPORT zr_bhs_localfile.
+
+*&---------------------------------------------------------------------*
+*&  SELECTION-SCREEN
+*&---------------------------------------------------------------------*
 SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME.
 
 PARAMETERS: p_dir_lg  TYPE localfile. "Campo que pede o Local onde será salvo.
@@ -30,10 +37,16 @@ FORM zf_local  USING p_dir TYPE localfile.
       error_no_gui         = 2
       not_supported_by_gui = 3
       OTHERS               = 4.
+
   IF sy-subrc <> 0.
+
     MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-               WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+    WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+
   ELSE.
+
     p_dir = l_sel_dir."Passa o caminho do diretorio para o parametro
+
   ENDIF.
+
 ENDFORM.
