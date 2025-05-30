@@ -9,10 +9,6 @@
 *----------------------------------------------------------------------*
 MODULE user_command_9000 INPUT.
 
-  CASE sy-ucomm.
-    WHEN '&BACK' OR '&UP' OR '&CANC'.
-      LEAVE PROGRAM.
-
-  ENDCASE.
+  PERFORM zf_verifica_click USING sy-ucomm.
 
 ENDMODULE.

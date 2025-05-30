@@ -28,6 +28,9 @@ CONSTANTS:
   c_9       TYPE c VALUE '9'          , " Valor 9.
   c_s       TYPE c VALUE 'S'          , " Sucesso
   c_e       TYPE c VALUE 'E'          , " Erro
+  c_back    TYPE char5 VALUE '&BACK'  , " Botão de Voltar
+  c_UP      TYPE char3 VALUE '&UP'    , " Botão de Exit
+  c_CANC    TYPE char5 VALUE '&CANC'  , " Botão de Cancelar
   c_add     TYPE char3 VALUE 'ADD'    , " Adição.
   c_sub     TYPE char3 VALUE 'SUB'    , " Subtração.
   c_mul     TYPE char3 VALUE 'MUL'    , " Multiplicação.
@@ -44,6 +47,7 @@ CONSTANTS:
   c_but_09  TYPE char6 VALUE 'BUT_09' , " Botão númerico 9
   c_but_c   TYPE char5 VALUE 'BUT_C'  , " Botão Limpar
   c_but_eq  TYPE char6 VALUE 'BUT_EQ' , " Botão Equal
+  c_but_ce  TYPE char6 VALUE 'BUT_CE' , " Botão CE
   c_but_add TYPE char7 VALUE 'BUT_ADD', " Botão Adição
   c_but_sub TYPE char7 VALUE 'BUT_SUB', " Botão Subtração
   c_but_mul TYPE char7 VALUE 'BUT_MUL', " Botão Multiplicação

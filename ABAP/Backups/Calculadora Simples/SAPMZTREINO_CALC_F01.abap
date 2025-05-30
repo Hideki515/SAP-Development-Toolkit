@@ -10,6 +10,13 @@
 FORM zf_verifica_click  USING p_sy_ucomm TYPE sy-ucomm.
 
   CASE p_sy_ucomm.
+
+    WHEN c_back
+      OR c_up
+      OR c_canc.
+
+      LEAVE PROGRAM.
+
     WHEN c_but_01.
 
       PERFORM zf_preenche_display USING c_1.
@@ -52,7 +59,15 @@ FORM zf_verifica_click  USING p_sy_ucomm TYPE sy-ucomm.
 
     WHEN c_but_c.
 
-      CLEAR v_display.
+      CLEAR:
+        v_value1,
+        v_value2,
+        v_operacao,
+        v_display.
+
+    WHEN c_but_ce.
+
+      PERFORM zf_apaga_ultimo_digioto.
 
     WHEN c_but_add.
 
@@ -81,13 +96,11 @@ ENDFORM.
 *&---------------------------------------------------------------------*
 *& Form zf_preenche_display
 *&---------------------------------------------------------------------*
-*& text
+*& Preenchimento do display com os dados.
 *&---------------------------------------------------------------------*
-*&      --> C_1
-*&---------------------------------------------------------------------*
-FORM zf_preenche_display  USING  p_number.
+FORM zf_preenche_display  USING p_value.
 
-  v_display = | { v_display }{ p_number } |.
+  v_display = | { v_display }{ p_value } |.
   CONDENSE v_display NO-GAPS.
 
 ENDFORM.
@@ -173,6 +186,7 @@ FORM zf_equals  USING p_operacao.
       CONDENSE v_display NO-GAPS.
 
     WHEN c_mul.
+
       CLEAR: v_value2.
       v_value2 = v_display.
 
@@ -184,5 +198,16 @@ FORM zf_equals  USING p_operacao.
       CONDENSE v_display NO-GAPS.
 
   ENDCASE.
+
+ENDFORM.
+
+*&---------------------------------------------------------------------*
+*& Form zf_apaga_ultimo_digioto
+*&---------------------------------------------------------------------*
+*& Apaga o último digito quando presionado o botão CE.
+*&---------------------------------------------------------------------*
+FORM zf_apaga_ultimo_digioto .
+
+  v_display = substring( val = v_display off = 0 len = strlen( v_display ) - 1 ).
 
 ENDFORM.
