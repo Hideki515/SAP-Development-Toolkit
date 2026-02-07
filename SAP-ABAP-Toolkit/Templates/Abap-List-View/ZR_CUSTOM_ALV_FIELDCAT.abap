@@ -1,9 +1,9 @@
 *&---------------------------------------------------------------------*
-*& Report ZR_CUSTOM_ALV
+*& Report ZR_CUSTOM_ALV_FIELDCAT
 *&---------------------------------------------------------------------*
 *& Estrutura ALV Customizado com Perform e Form
 *&---------------------------------------------------------------------*
-REPORT zr_teste. "Define o nome do programa.
+REPORT zr_custom_alv_fieldcat. "Define o nome do programa.
 
 * Declaração da tabela SFLIGHT para uso no programa.
 TABLES: sflight.
@@ -39,10 +39,10 @@ DATA: wa_layout_alv   TYPE slis_layout_alv, "Configuração de layout do ALV.
 *& SELECTION-SCREEN
 *&---------------------------------------------------------------------*
 * Define os parâmetros de seleção na tela inicial do programa.
-SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE text-t01. "Título do bloco.
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE TEXT-t01. "Título do bloco.
 
-SELECT-OPTIONS: s_carrid FOR sflight-carrid, "Intervalo para código da companhia aérea.
-s_connid FOR sflight-connid. "Intervalo para número de conexão.
+  SELECT-OPTIONS: s_carrid FOR sflight-carrid, "Intervalo para código da companhia aérea.
+  s_connid FOR sflight-connid. "Intervalo para número de conexão.
 
 SELECTION-SCREEN END OF BLOCK b1.
 
@@ -145,7 +145,7 @@ FORM zf_mostra_alv.
 
   IF sy-subrc <> 0. "Verifica erros na chamada da função.
 
-    MESSAGE: text-e01 TYPE 'S' DISPLAY LIKE 'E'. "Exibe mensagem de erro.
+    MESSAGE: TEXT-e01 TYPE 'S' DISPLAY LIKE 'E'. "Exibe mensagem de erro.
     LEAVE TO LIST-PROCESSING. "Retorna para a tela de seleção.
 
   ENDIF.
